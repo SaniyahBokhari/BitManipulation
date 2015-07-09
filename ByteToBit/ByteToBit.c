@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 
-char *ConvertIntToBinary(char char_value)
+char *ConvertByteToBinary(char char_value)
 {
    char* binary_string=malloc(9*sizeof(char));
    int i;
@@ -27,7 +27,7 @@ int main()
    char vals[13] = {0,1,2,64,65,125,126,127,-128,-127,-64,-2,-1};  
    int i;
    for(i=0;i<13;i++){
-      char* binary_string = ConvertIntToBinary(vals[i]);
+      char* binary_string = ConvertByteToBinary(vals[i]);
       printf("%4d %s\n",vals[i],binary_string);
       free(binary_string);
    }      
