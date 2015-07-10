@@ -50,9 +50,23 @@ class BitOperations{
 
     }
 
+    public static String ConvertIntToBinary(int integer_value){
+        String binary_string = "";
+        int probe = 0x80000000; // Equivalent to 32 bits in binary 
+                                // with 1 in the left most position
+                                // and zeroes elsewhere
+        int result;
+        for(int i=0;i<32;i++){ // Probe bit position from left to right
+            result = probe & integer_value;
+            binary_string += (result!=0)?"1":"0";      
+            probe = probe >>> 1; // Shift right without extending sign bit
+        }
+        return binary_string;
+    }
+
     public static void main(String args[]){
        byte val1 = -127;
-       byte val2 = -45;
+       byte val2 = 5;
     
        // AND Operation
 
@@ -76,45 +90,45 @@ class BitOperations{
 
        // Shift Left Operation
 
-       System.out.println("......................");       
+       System.out.println("..................................................");       
        System.out.println("The << operation: ");
-       System.out.println("......................");
-       byte result = val1; 
-       System.out.format("<< %d %9s %5d\n",0,ConvertByteToBinary(result),result);
+       System.out.println("..................................................");       
+       int result = val2; 
+       System.out.format("<< %d %9s %5d\n",0,ConvertIntToBinary(result),result);
        for(int i=0;i<8;i++){
-          result = (byte)((int)result << 1 );
-          System.out.format("<< %d %9s %5d\n",i+1,ConvertByteToBinary(result),result);
+          result = result << 1;
+          System.out.format("<< %d %9s %5d\n",i+1,ConvertIntToBinary(result),result);
        }
-       System.out.println("......................"); 
+       System.out.println("..................................................");       
        System.out.println(); 
 
 
        // Shift Right Operation
 
-       System.out.println("......................");       
+       System.out.println("..................................................");       
        System.out.println("The >> operation: ");
-       System.out.println("......................");
-       result = val2; 
-       System.out.format(">> %d %9s %5d\n",0,ConvertByteToBinary(result),result);
+       System.out.println("..................................................");       
+       result = val1; 
+       System.out.format(">> %d %9s %5d\n",0,ConvertIntToBinary(result),result);
        for(int i=0;i<8;i++){
-          result = (byte)((int)result >> 1 );
-          System.out.format(">> %d %9s %5d\n",i+1,ConvertByteToBinary(result),result);
+          result = result >> 1;
+          System.out.format(">> %d %9s %5d\n",i+1,ConvertIntToBinary(result),result);
        }
-       System.out.println("......................"); 
+       System.out.println("..................................................");       
        System.out.println(); 
       
        // Shift Right Unsigned Operation
 
-       System.out.println("......................");       
+       System.out.println("..................................................");       
        System.out.println("The >>> operation: ");
-       System.out.println("......................");
-       result = val2; 
-       System.out.format(">>> %d %9s %5d\n",0,ConvertByteToBinary(result),result);
+       System.out.println("..................................................");       
+       result = val1; 
+       System.out.format(">>> %d %9s %5d\n",0,ConvertIntToBinary(result),result);
        for(int i=0;i<8;i++){
-          result = (byte)((int)result >>> 1 );
-          System.out.format(">>> %d %9s %5d\n",i+1,ConvertByteToBinary(result),result);
+          result =  result >>> 1;
+          System.out.format(">>> %d %9s %5d\n",i+1,ConvertIntToBinary(result),result);
        }
-       System.out.println("......................"); 
+       System.out.println("..................................................");       
        System.out.println(); 
 
     }

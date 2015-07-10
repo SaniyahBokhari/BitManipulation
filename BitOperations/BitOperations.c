@@ -51,7 +51,7 @@ void printAnswerNot(char value1, char result, char operation){
 int main()
 {
    char val1 = -127;
-   char val2 = 127;
+   char val2 = 5;
 
    // AND Operation
 
@@ -78,7 +78,7 @@ int main()
    printf("......................\n");       
    printf("The << operation: \n");
    printf("......................\n"); 
-   char result = val1;   
+   char result = val2;   
    printf("%9s %5d\n",ConvertByteToBinary(result),result);
    int i;
    for(i=0;i<8;i++){

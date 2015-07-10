@@ -51,8 +51,8 @@ void printAnswer(char value1, char result, char operation){
 
 int main()
 {
-   char val1 = 127;
-   char val2 = 100;
+   char val1 = -127;
+   char val2 = 5;
 
    // AND Operation
 
@@ -79,7 +79,7 @@ int main()
    cout << "......................" << endl;       
    cout << "The << operation: " << endl;
    cout << "......................" << endl;       
-   char result = val1;   
+   char result = val2;   
    cout << setw(9) << ConvertByteToBinary(result) << setw(5) << (int)result << endl;
    for(int i=0;i<8;i++){
       result = result << 1;
